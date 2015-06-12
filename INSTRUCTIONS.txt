@@ -1,0 +1,34 @@
+Write an interactive program on Linux, that creates a “keyed” file.
+This program reads student records (name, phone, address) from standard input, 
+and returns a unique id for each record. 
+The id will be used in the second program to retrieve the corresponding record.
+This program should keep taking inputs until the user types "y" in response to Quit.
+Immediately before the quit prompt is printed each time,
+the newly obtained record must be written to a file named "students" under the current directory. 
+Phone number should be checked for only digits, spaces and dashes. Name should only be letters (caps allowed). 
+
+The data structure to be used in this exercise (taken from specs of lab 4):
+typedef struct student {
+char name[32];
+char phone[16];
+char address[128];
+} student_t;
+
+You must add the ID field to the above struct. Preferably before the name field.
+
+Here is a sample run:
+Name >> John
+Phone >> 101 555 1001
+Address >> Anywhere
+Record Created with id: 0
+Quit(y/n)? >> n
+
+Name >> ...
+
+Only the content of the struct is written to the “directory”.  
+Records will NOT be overwritten.  
+If a name is already in the directory, 
+prompt the user: “Is this a new entry?” and if yes, add it to the file, 
+otherwise prompt with “duplicate ignored” and request another entry.
+
+NOTE: You will use the output of this lab to create the input for the next lab.
